@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const PORT = process.env.PORT
 
 // get
 router.get('/', (req, res) => {
@@ -21,18 +20,20 @@ router.post('/', (req, res) => {
 // put
 router.put('/:id', (req, res) => {
     const id = req.params.id;
-    res.send('Full update of post with id:', id);
+    res.send(`Full update of post with id ${id}`);
 })
 
 // patch
-router.patch('/', (req, res) => {
+router.patch('/:id', (req, res) => {
     const id = req.params.id;
-    res.send('Partial update of post with id:', id);
+    res.send(`Partial update of post with id ${id}`);
 })
 
 // delete
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
     const id = req.params.id;
-    res.send('Delete post with id:', id);
+    res.send(`Delete of post with id ${id}`);
 })
+
+module.exports = router;
 
