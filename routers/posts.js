@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const posts = require('../data.js');
 
 // get
 router.get('/', (req, res) => {
-    res.send('Get all posts');
+    res.json(posts);
 })
 
 // show
 router.get('/:id', (req, res) => {
     const id = req.params.id;
-    res.send('Show post with id:', id);
+    res.json(posts[id - 1]);
 })
 
 // post
